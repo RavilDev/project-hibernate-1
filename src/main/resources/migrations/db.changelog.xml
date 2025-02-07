@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.9.xsd">
+
+    <changeSet id="1738866395578-1" author="Safargulov Ravil">
+        <sql>
+            CREATE SCHEMA rpg;
+        </sql>
+    </changeSet>
+
+    <changeSet id="1738853044111-1" author="Safargulov Ravil">
+        <createTable tableName="player" schemaName="rpg">
+            <column name="id" type="BIGINT">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(12)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="title" type="VARCHAR(30)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="race" type="INTEGER">
+                <constraints nullable="true"/>
+            </column>
+            <column name="profession" type="INTEGER">
+                <constraints nullable="true"/>
+            </column>
+            <column name="birthday" type="DATE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="banned" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="level" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="1738783862217-1" author="Safargulov Ravil">
+        <sqlFile path="init.sql"/>
+    </changeSet>
+</databaseChangeLog>
